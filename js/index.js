@@ -7,6 +7,25 @@ let servicio = true;
 let precioFinal = 0;
 let total= 0;
 const servicios = [];
+const carrito = [];
+
+class Servicio {
+    constructor( nombre, precio) {
+        
+        this.nombre = nombre
+        this.precio = precio
+        
+    }
+}
+
+function generarServicios() {
+    servicios.push(new Servicio( "SELFIETAG", 2000))
+    servicios.push(new Servicio( "CABINA DE FOTOS", 5000))
+    servicios.push(new Servicio( "SOUVENIR", 300))
+ 
+}
+
+generarServicios()
 
 //ciclo principal de la simulacion que se ejecuta mientras servicio sea true
 while(servicio){
@@ -15,25 +34,25 @@ while(servicio){
     total = totalCompra(compra, cantidad);
     servicio = confirm ("¿Desea agregar otro servicio?")
 }
-debugger
-alert("Se compraron " + servicios.length + " " + "servicios."+ "\n El precio final es de: " + total);
 
+alert("Se compraron " + carrito.length + " " + "servicios."+ "\n El precio final es de: " + total);
+listarServiciosComprados();
 
 
 //funcion para elegir el servicio con validacion
 function elegirServicio(){
     let compra = parseFloat(prompt("Ingrese Servicio que desea comprar (1,2 o 3): \n 1-Servicio SelfieTag \n 2-Servicio de Cabina de Fotos \n 3-Servicio de Souvenir  "))
     if (compra == 1){
-        productosComprados("Selfie-Tag")
+        carro("Selfie-Tag")
         return compra;
         
     }
     else if(compra == 2){
-        productosComprados("Cabina de Fotos")
+        carro("Cabina de Fotos")
         return compra;
     }
     else if (compra == 3 ){
-        productosComprados("Souvenir")
+        carro("Souvenir")
         return compra;
     }
     else{
@@ -64,6 +83,24 @@ function totalCompra(compra, cantidad){
 
 }
 
-function productosComprados(producto){
-    servicios.push(producto);
+function carro(servicio){
+    carrito.push(servicio);
+}
+
+
+function listarServiciosComprados() {
+    carrito.forEach((servicio)=> {
+        console.log(servicio)
+    })
+}
+
+function buscarServicio() {
+    debugger
+    let nombreServ = prompt("Ingresa el nombre del servicio a buscar:").toUpperCase()
+    let resultado = servicios.find((servicio)=> servicio.nombre.includes(nombreServ))
+        if (resultado !== undefined) {
+            console.log(resultado)
+        } else {
+            console.warn("No se encontró un elemento coincidente.")
+        }
 }
