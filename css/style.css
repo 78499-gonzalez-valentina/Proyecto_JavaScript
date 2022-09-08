@@ -1,0 +1,26 @@
+*{
+    font-family:sans-serif;
+}
+table{
+    background-color: beige;
+    border: 1px solid black;
+   width: 600px;
+   
+    
+}
+
+td{
+    padding: 5px;
+    border: 1px solid black;
+    
+}
+th{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+input{
+    margin: 15px;
+    padding: 8px;
+
+}
