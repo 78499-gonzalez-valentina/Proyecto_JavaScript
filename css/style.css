@@ -24,3 +24,25 @@ input{
     padding: 8px;
 
 }
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    width: 300px;
+}
+#agregar{
+    margin: 10px;
+    padding: 10px;
+
+}
+
+.foco{
+    
+    background-color: rgb(219, 213, 213); 
+}
+
+button{
+    width: 100px;
+}
