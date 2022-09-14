@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/index.js"></script>
     <script defer src="./js/dom.js"></script>
     <script defer src="./js/eventos.js"></script>
     <link rel="stylesheet" href="./css/style.css">
@@ -13,12 +12,14 @@
 <body>
     <article>
         <h1>Servicios de Selfie Live</h1>
-        <input type="search" id="filtrarServicio" placeholder="Ingrese servicio a buscar">
+        <input type="search" id="inputFiltrar" placeholder="Ingrese servicio a buscar">
         <table>
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Servicio</th>
                     <th>Precio</th>
+                    <th>Agregar al Carrito</th>
                     
                 </tr>
             </thead>
@@ -31,8 +32,9 @@
     </article>
     <main>
         <h2>Agregar Servicio</h2>
-        <input type="nombre" id="inputNombre" placeholder="Ingrese servicio" tabindex="1">
-        <input type="precio" name="precio" id="inputPrecio" placeholder="Ingrese precio" tabindex="2">
+        <input type="id" id="inputID" placeholder="Ingrese ID" >
+        <input type="nombre" id="inputNombre" placeholder="Ingrese servicio" >
+        <input type="precio" name="precio" id="inputPrecio" placeholder="Ingrese precio" >
         <button type="submit" id="agregar">Agregar</button>
     </main>
 
