@@ -34,7 +34,7 @@ input{
 }
 #agregar{
     margin: 10px;
-    padding: 10px;
+    padding: 5px;
 
 }
 
@@ -45,4 +45,21 @@ input{
 
 button{
     width: 100px;
+}
+
+.boton{
+    width: 100px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.formContacto{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    width: 300px;
+    margin: 14px;
+    padding: 5px;
 }
