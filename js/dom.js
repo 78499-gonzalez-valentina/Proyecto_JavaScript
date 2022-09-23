@@ -1,7 +1,9 @@
 const tabla = document.getElementById("tabla")
 const inputFiltrar = document.getElementById("inputFiltrar")
 const servicios = [];
-const carrito = [];
+const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+
 
 // clase Servicio
 class Servicio {
@@ -79,14 +81,31 @@ eventoEnBotones()
 
 
 function agregarAlCarrito(id){
-    const servicio = servicios.find(serv => serv.id == id)
-    carrito.push(servicio)
+    debugger
+    const servicio = carrito.find(serv => serv.id == id)
+    if(servicio){
+        servicio.quantity++;
+        servicio.precio + servicio.precio
+    }
+    else{
+        const servicio = servicios.find(serv => serv.id == id)
+        if(servicio){
+            let newServ ={
+                id: servicio.id,
+                nombre: servicio.nombre,
+                precio: servicio.precio,
+                quantity: 1
+
+            }
+            carrito.push(servicio)
+        }
+       
+    }
+    
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
 
-function recuperarCarrito() {
-    if (localStorage.getItem("carrito")) {
-        carrito = JSON.parse(localStorage.getItem("carrito"))
-    }
-}
-recuperarCarrito()
+
+
+
+
