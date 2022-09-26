@@ -17,9 +17,9 @@ class Servicio {
 
 //generador automatico de array de Servicios
 function generarServicios() {
-    servicios.push(new Servicio( 545,"SELFIETAG", 2000))
-    servicios.push(new Servicio(412, "CABINA DE FOTOS", 5000))
-    servicios.push(new Servicio(874, "SOUVENIR", 300))
+    servicios.push(new Servicio( 1,"SELFIETAG", 2000))
+    servicios.push(new Servicio(2, "CABINA DE FOTOS", 5000))
+    servicios.push(new Servicio(3, "SOUVENIR", 300))
  
 }
 
@@ -79,17 +79,18 @@ function eventoEnBotones() {
 
 eventoEnBotones()
 
-
+//Agregar al carrito, si es el mismo va aumentando la cantidad
 function agregarAlCarrito(id){
     debugger
     const servicio = carrito.find(serv => serv.id == id)
     if(servicio){
+        //si ya esta en el carrito
         servicio.quantity++;
-        servicio.precio + servicio.precio
     }
     else{
+        //si no esta en el carrito se lo agrega
         const servicio = servicios.find(serv => serv.id == id)
-        if(servicio){
+        
             let newServ ={
                 id: servicio.id,
                 nombre: servicio.nombre,
@@ -97,10 +98,11 @@ function agregarAlCarrito(id){
                 quantity: 1
 
             }
-            carrito.push(servicio)
-        }
+            carrito.push(newServ)
+        
        
     }
+
     
     localStorage.setItem("carrito", JSON.stringify(carrito))
 }
