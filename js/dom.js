@@ -81,7 +81,6 @@ eventoEnBotones()
 
 //Agregar al carrito, si es el mismo va aumentando la cantidad
 function agregarAlCarrito(id){
-    debugger
     const servicio = carrito.find(serv => serv.id == id)
     if(servicio){
         //si ya esta en el carrito
