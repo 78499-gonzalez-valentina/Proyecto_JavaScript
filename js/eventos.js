@@ -6,39 +6,18 @@ const precio = document.querySelector("#inputPrecio")
 
 //Carga de nuevos servicios
 const cargar =()=>{
-    id.value == "" && nombre.value == "" && precio.value == "" ?  alert("Complete los campos para añadir un servicio") : añadirServicio()
+    id.value == "" && nombre.value == "" && precio.value == "" ?  toastSwal("Complete los campos para añadir un servicio", "tomato", "white") : añadirServicio()
 
 }
 
 function añadirServicio(){
-    let timerInterval
-    Swal.fire({
-      title: 'Servicio agregado con exito!',
-      timer: 1000,
-      timerProgressBar: true,
-      didOpen: () => {
-        // Swal.showLoading()
-        const b = Swal.getHtmlContainer().querySelector('b')
-        timerInterval = setInterval(() => {
-          b.textContent = Swal.getTimerLeft()
-        }, 100)
-      },
-      willClose: () => {
-        clearInterval(timerInterval)
-      }  
-    }).then((result) => {
-      if (result.dismiss === Swal.DismissReason.timer) {
-        console.log('I was closed by the timer')
-      }
-    })
-
-
     servicios.push(new Servicio(id.value, nombre.value, precio.value))
     tabla.innerHTML = " "
     cargarServicios(servicios)
     id.value = ""
     nombre.value = ""
     precio.value = ""
+    toastSwal("Servicio añadido con exito!", "green", "white")
 }
 
 //Que al presionar Agregar se ejecute la carga del servicio
@@ -55,6 +34,20 @@ inputs.forEach(input=> {
 })
 
 
+//msj temporal con libreria 
+const toastSwal = (mensaje, bgcolor, color)=> {
+    Swal.fire({
+        toast: true,
+        title: mensaje,
+        timer: 1300,
+        position: 'bottom',  //top-end - top-start - bottom (start & end)
+        timerProgressBar: false,
+        showConfirmButton: false,
+        background: bgcolor,
+        color: color,
+    })
+
+}
 
 
 
