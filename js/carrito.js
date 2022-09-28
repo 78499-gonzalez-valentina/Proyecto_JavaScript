@@ -23,6 +23,8 @@ function recuperoCarrito(carrito) {
 }
 
 
+const serviciosSeleccionados = carrito.length != 0 || "No hay servicios en el carrito."
+
 recuperoCarrito(carrito)
 
 function eliminarServicio(array, id)
@@ -49,7 +51,6 @@ function eliminarServicio(array, id)
 
  function eliminarEnBotones()
  {  
-    debugger
      carrito.forEach(serv => {
         const borrar = document.querySelector(`#btn${serv.id}`)
         borrar.addEventListener("click",  ()=> eliminarServicioDelCarrito(`${serv.id}`))
@@ -57,4 +58,3 @@ function eliminarServicio(array, id)
      
  }
  eliminarEnBotones()
-

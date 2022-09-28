@@ -1,36 +1,37 @@
 const tabla = document.getElementById("tabla")
 const inputFiltrar = document.getElementById("inputFiltrar")
-const servicios = [];
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 
-// clase Servicio
-class Servicio {
-    constructor(id, nombre, precio) {
-        this.id = id
-        this.nombre = nombre
-        this.precio = precio
-        
+let servicios = [
+    {
+        id:1,
+        nombre: "SELFIETAG",
+        precio: 2000,
+        image: "../assets/imag/serv1.jpeg"
+    },
+    {
+        id:2,
+        nombre: "CABINA DE FOTOS",
+        precio: 5000,
+        image: "../assets/imag/serv2.png"
+    },
+    {
+        id:3,
+        nombre: 'SOUVENIR',
+        precio: 300,
+        image: "../assets/imag/LLAVERO.png"
     }
-}
+    
+]
 
-//generador automatico de array de Servicios
-function generarServicios() {
-    servicios.push(new Servicio( 1,"SELFIETAG", 2000))
-    servicios.push(new Servicio(2, "CABINA DE FOTOS", 5000))
-    servicios.push(new Servicio(3, "SOUVENIR", 300))
- 
-}
-
-
-generarServicios()
  
 //Cargar lista de servicios a la tabla en el html
  function cargarServicios(array){
- let fila = ""
-     array.forEach(servicio => {
-         fila = `<tr>
+    let fila = ""
+        array.forEach(servicio => {
+            fila = `<tr>
                      <td>${servicio.id}</td>
                      <td>${servicio.nombre}</td>
                      <td>${servicio.precio}</td>
@@ -43,6 +44,7 @@ generarServicios()
 
  }
 
+ console.log(...servicios)
  cargarServicios(servicios)
 
  
@@ -82,6 +84,7 @@ eventoEnBotones()
 //Agregar al carrito, si es el mismo va aumentando la cantidad
 function agregarAlCarrito(id){
     const servicio = carrito.find(serv => serv.id == id)
+
     if(servicio){
         //si ya esta en el carrito
         servicio.quantity++;
